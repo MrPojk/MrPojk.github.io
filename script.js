@@ -24,7 +24,7 @@ function saveTasksToLocalStorage() {
     const taskItems = taskList.children;
 
     for (let i = 0; i < taskItems.length; i++) {
-        tasks.push(taskItems[i].textContent);
+        tasks.push(taskItems[i].firstChild.textContent); // Only store the task text
     }
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -55,6 +55,7 @@ function completeTask(event) {
 function deleteTask(event) {
     const task = event.target.parentElement;
     taskList.removeChild(task);
+    saveTasksToLocalStorage(); // Update local storage
 }
 
 loadTasksFromLocalStorage();
