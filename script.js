@@ -1,5 +1,10 @@
 const taskInput = document.getElementById('taskInput');
 const taskList = document.getElementById('taskList');
+const themeToggle = document.getElementById('theme-toggle');
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+});
 
 function addTask() {
     const taskText = taskInput.value.trim();
